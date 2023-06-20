@@ -17,3 +17,27 @@ class Customer:
 
     def last_visited(self):
         pass
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        self.__name = name
+
+    @property
+    def customerID(self):
+        return self.__name
+
+    @customerID.setter
+    def customerID(self, customerID):
+        self.__customerID = customerID
+
+    @property
+    def contact_number(self):
+        return self.__contact_number
+
+    @contact_number.setter
+    def name(self, contact_number):
+        self.__contact_number = contact_number
