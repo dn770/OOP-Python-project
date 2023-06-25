@@ -20,3 +20,18 @@ class ManagementSystem:
     def create_shipping(self):
         Shipping(adress)
 
+    @property
+    def menus(self):
+        return self.__menus
+
+    @menus.setter
+    def menus(self,menus):
+        self.__menus = manues
+
+    @property
+    def tables(self):
+        return self.__tables
+
+    @tables.setter
+    def tables(self, tables):
+        self.__tables = tables

@@ -12,12 +12,12 @@ class MenuItem:
         self.price = price
 
     @property
-    def menuItemID(self):
-        return self.__menuItemID
+    def menu_item_id(self):
+        return self.__menu_item_id
 
-    @menuItemID.setter
-    def menuItemID(self,menuItemID):
-        self.__menuItemID = menuItemID
+    @menu_item_id.setter
+    def menu_item_id(self,menu_item_id):
+        self.__menu_item_id = menu_item_id
 
     @property
     def title(self):
@@ -32,7 +32,7 @@ class MenuItem:
         return self.__description
 
     @description.setter
-    def description(self, payment_type):
+    def description(self, description):
         self.__description = description
 
     @property
