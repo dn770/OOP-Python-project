@@ -1,10 +1,16 @@
 class Order:
-    def __int__(self, orderID, order_status):
-        self.__orderID = orderID
-        self.__order_status = order_status
+    order_id = 0
+    def __int__(self,table_id,):
+        Order.order_id += 1
+        self.__orderID =Order.order_id
+        self.__order_status = False
+        self.__order_items = []
+        self.__order_price = sum(self.__order_items.menu_item.price)
+        self.__table_id =
+        self.customer.id =
 
-    def add_menu_item(self):
-        pass
+    def add_menu_item(self, menu_item):
+        self.__order_items.append(menu_item)
 
     def remove_menu_item(self):
         pass

@@ -1,22 +1,22 @@
 class Reservation:
-    def __int__(self, reservationID, reservation_time, number_of_people):
-        self.__reservationID = reservationID
+    reservation_id = 0
+
+    def __int__(self, reservation_time, number_of_people):
+        Reservation.reservation_id += 1
+        self.__reservation_id = Reservation.reservation_id
         self.__reservation_time = reservation_time
         self.__number_of_people = number_of_people
 
-    def cancel_reservation(self):
-        pass
-
-    def change_reservation_time(self):
-        pass
+    def change_reservation_time(self, reservation_time):
+        self.__reservation_time = reservation_time
 
     @property
-    def reservationID(self):
-        return self.__reservationID
+    def reservation_id(self):
+        return self.__reservation_id
 
-    @reservationID.setter
-    def reservationID(self, reservationID):
-        self.__reservationID = reservationID
+    @reservation_id.setter
+    def reservation_id(self, reservation_id):
+        self.__reservation_id = reservation_id
 
     @property
     def reservation_time(self):
@@ -27,8 +27,8 @@ class Reservation:
         self.__reservation_time = reservation_time
 
     @property
-    def contact_number(self):
-        return self.__contact_number
+    def number_of_people(self):
+        return self.__number_of_people
 
     @number_of_people.setter
     def name(self, number_of_people):

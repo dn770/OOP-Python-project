@@ -1,10 +1,17 @@
 class Table:
-    def __int__(self, tableID, table_status, max_capacity):
-        self.__tableID = tableID
-        self.__table_status = table_status
+    table_id = 0
+    def __init__(self, max_capacity):
+        Table.table_id += 1
+        self.__tableID = Table.table_id
+        self.__table_status = False
         self.__max_capacity = max_capacity
+        self.__reservation_id = 0
 
-    def addReservation(self):
+    def add_reservation(self, reservation_id):
+        self.__reservation_id = reservation_id
+        self.__table_status = True
+
+    def create_order(self):
         pass
 
     @property
