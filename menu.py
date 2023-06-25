@@ -1,18 +1,20 @@
 import menuItem
+
+
 class Menu:
-    menuID = 0
+    menu_id = 0
 
     def __init__(self):
-        Menu.menuID += 1
-        self.__menuID = Menu.menuID
+        Menu.menu_id += 1
+        self.__menu_id = Menu.menu_id
         self.__items = []
 
-    def add_menuItem(self, menuItem):
-        self.__items.append(menuItem)
+    def add_menu_item(self, menu_item):
+        self.__items.append(menu_item)
 
-    def remove_menuItem(self,menuItemID):
+    def remove_menu_item(self,menu_item_id):
         for item in self.__items:
-            if item.menuItemID == menuItemID:
+            if item.menu_item_id == menu_item_id:
                 self.__items.remove(item)
                 break
 
@@ -20,17 +22,17 @@ class Menu:
         self.__items.clear()
 
     @property
-    def menuID(self):
+    def menu_id(self):
         return self.__menuID
 
-    @menuID.setter
-    def menuID(self,menuID):
-        self.__menuID = menuID
+    @menu_id.setter
+    def menu_id(self, menu_id):
+        self.__menu_id = menu_id
 
     @property
     def items(self):
         return self.__items
 
     @items.setter
-    def items(self,items):
+    def items(self, items):
         self.__items = items

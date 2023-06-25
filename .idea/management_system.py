@@ -1,6 +1,7 @@
+import restaurant
 class ManagementSystem:
 
-    def __init__(self,table):
+    def __init__(self):
         self.__menus = []
         self.__tables = []
 
@@ -13,9 +14,9 @@ class ManagementSystem:
     def take_order(self,order):
         order.order_status = True
 
-    def createResevation(self):
+    def create_resevation(self):
         Reservision(time, num_of_people)
 
-    def createShipping(self):
+    def create_shipping(self):
         Shipping(adress)
 

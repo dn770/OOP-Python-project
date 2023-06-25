@@ -1,6 +1,9 @@
 class MenuItem:
-    def __int__(self, menuItemID, title, description, price):
-        self.__menuItemID = menuItemID
+    menu_item_id = 0
+
+    def __init__(self, title, description, price):
+        MenuItem.menu_item_id += 1
+        self.__menuItemID = MenuItem.menu_item_id
         self.__title = title
         self.__description = description
         self.__price = price

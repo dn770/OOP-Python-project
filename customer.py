@@ -4,18 +4,18 @@ class Customer:
     def __init__(self, name, contact_number):
         Customer.customer_id += 1
         self.__name = name
-        self.__customerID = Customer.customer_id
+        self.__customer_id = Customer.customer_id
         self.__contact_number = contact_number
 
     def check_in(self):
         pass
 
-    def chack_out(self):
+    def check_out(self):
         pass
 
     @property
     def name(self):
-        return self._name
+        return self.__name
 
     @name.setter
     def name(self, name):
