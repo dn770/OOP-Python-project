@@ -1,10 +1,23 @@
+import menuItem
 class Menu:
-    def __int__(self, menuID, items):
-        self.__menuID = menuID
-        self.__items = items
+    menuID = 0
+
+    def __init__(self):
+        Menu.menuID += 1
+        self.__menuID = Menu.menuID
+        self.__items = []
 
     def add_menuItem(self, menuItem):
-        items.append(menuItem)
+        self.__items.append(menuItem)
+
+    def remove_menuItem(self,menuItemID):
+        for item in self.__items:
+            if item.menuItemID == menuItemID:
+                self.__items.remove(item)
+                break
+
+    def clear_menu(self):
+        self.__items.clear()
 
     @property
     def menuID(self):
@@ -19,21 +32,5 @@ class Menu:
         return self.__items
 
     @items.setter
-    def items(self, items):
+    def items(self,items):
         self.__items = items
-
-    @property
-    def description(self):
-        return self.__description
-
-    @description.setter
-    def description(self, payment_type):
-        self.__description = description
-
-    @property
-    def price(self):
-        return self.__price
-
-    @price.setter
-    def price(self, price):
-        self.

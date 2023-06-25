@@ -5,8 +5,8 @@ class MenuItem:
         self.__description = description
         self.__price = price
 
-    def update_price(self):
-        pass
+    def update_price(self,price):
+        self.price = price
 
     @property
     def menuItemID(self):
