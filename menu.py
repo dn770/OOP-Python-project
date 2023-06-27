@@ -13,7 +13,7 @@ class Menu:
         item = MenuItem(title, description, price)
         self.__items.append(item)
 
-    def remove_menu_item(self,menu_item_id):
+    def remove_menu_item(self, menu_item_id):
         for item in self.__items:
             if item.menu_item_id == menu_item_id:
                 self.__items.remove(item)
@@ -24,7 +24,7 @@ class Menu:
 
     @property
     def menu_id(self):
-        return self.__menuID
+        return self.__menu_id
 
     @menu_id.setter
     def menu_id(self, menu_id):

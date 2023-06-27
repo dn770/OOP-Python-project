@@ -1,6 +1,6 @@
 from customer import Customer
-from managment_system import ManagementSystem
-from table import Table
+from management_system import ManagementSystem
+#from table import Table
 from bill import Bill
 
 

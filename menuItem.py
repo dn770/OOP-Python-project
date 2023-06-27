@@ -3,7 +3,7 @@ class MenuItem:
 
     def __init__(self, title, description, price):
         MenuItem.menu_item_id += 1
-        self.__menuItemID = MenuItem.menu_item_id
+        self.__menu_item_id = MenuItem.menu_item_id
         self.__title = title
         self.__description = description
         self.__price = price

@@ -1,5 +1,6 @@
 from reservation import Reservation
 from order import Order
+from management_system import ManagementSystem
 
 
 class Table:
