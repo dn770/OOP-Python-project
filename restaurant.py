@@ -1,6 +1,9 @@
 from management_system import ManagementSystem
+
+
 class Restaurant:
-    def __int__(self, name, address, phone_number, description):
+
+    def __init__(self, name, address, phone_number, description):
         self.__name = name
         self.__address = address
         self.__phone_number = phone_number
@@ -9,13 +12,12 @@ class Restaurant:
     def create_management_system(self):
         return ManagementSystem()
 
-
     @property
     def name(self):
         return self.__name
 
     @name.setter
-    def name(self,name):
+    def name(self, name):
         self.__name = name
 
     @property
@@ -24,7 +26,7 @@ class Restaurant:
 
     @address.setter
     def address(self, address):
-        self.__adress = address
+        self.__address = address
 
     @property
     def description(self):

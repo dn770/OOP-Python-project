@@ -65,3 +65,11 @@ class ManagementSystem():
     @tables.setter
     def tables(self, tables):
         self.__tables = tables
+
+    @property
+    def customers(self):
+        return self.__customers
+
+    @customers.setter
+    def customers(self, customers):
+        self.__customers = customers

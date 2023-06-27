@@ -1,7 +1,7 @@
 class Reservation:
     reservation_id = 0
 
-    def __int__(self, reservation_time, number_of_people):
+    def __init__(self, reservation_time, number_of_people):
         Reservation.reservation_id += 1
         self.__reservation_id = Reservation.reservation_id
         self.__reservation_time = reservation_time
@@ -23,7 +23,7 @@ class Reservation:
         return self.__reservation_time
 
     @reservation_time.setter
-    def customerID(self, reservation_time):
+    def reservation_time(self, reservation_time):
         self.__reservation_time = reservation_time
 
     @property

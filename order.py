@@ -2,10 +2,12 @@ from customer import Customer
 from managment_system import ManagementSystem
 from table import Table
 from bill import Bill
+
+
 class Order:
     order_id = 0
 
-    def __int__(self,table_id, customer_id, payment_type):
+    def __init__(self, table_id, customer_id, payment_type):
         Order.order_id += 1
         self.__orderID = Order.order_id
         self.__order_status = False
@@ -60,3 +62,42 @@ class Order:
     @order_status.setter
     def order_status(self, order_status):
         self.__order_status = order_status
+    @property
+    def order_items(self):
+        return self.__order_items
+
+    @order_items.setter
+    def order_items(self, order_items):
+        self.__order_items = order_items
+
+    @property
+    def order_price(self):
+        return self.__order_price
+
+    @order_price.setter
+    def order_price(self, order_price):
+        self.__order_price = order_price
+
+    @property
+    def table_id(self):
+        return self.__table_id
+
+    @table_id.setter
+    def table(self, table_id):
+        self.__table_id = table_id
+
+    @property
+    def customer_id(self):
+        return self.__customer_id
+
+    @customer_id.setter
+    def customer_id(self, customer_id):
+        self.__customer_id = customer_id
+
+    @property
+    def bill(self):
+        return self.__bill
+
+    @bill.setter
+    def bill(self, bill):
+        self.__bill = bill

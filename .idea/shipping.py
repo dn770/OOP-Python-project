@@ -1,5 +1,7 @@
 from customer import Customer
 from order import Order
+from management_system import ManagementSystem
+
 class Shipping:
 
     shipping_id = 0
@@ -19,6 +21,7 @@ class Shipping:
         ManagementSystem.orders.append(new_order)
         return new_order
 
+
         @property
         def shipping_id(self):
             return self.__shipping_id
@@ -31,6 +34,6 @@ class Shipping:
         def shipping_address(self):
             return self.__shipping_address
 
-        @tables.setter
-        def ashipping_address(self, shipping_address):
+        @shipping_address.setter
+        def shipping_address(self, shipping_address):
             self.__shipping_address = shipping_address

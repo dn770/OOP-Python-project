@@ -13,18 +13,17 @@ class Table:
         self.__reservation_id = 0
 
     def add_reservation(self, reservation):
-        if not self.tabel_status and self.max_capacity / 2 <= reservation.number_of_people <= self.__max_capacity:
-            self.__reservation_id = reservation.reservation_id
-            self.__table_status = True
-            ManagementSystem.remove_reeservation(self.__reservation_id)
-            ManagementSystem.orders.append(new_order)
-vation_id)
-            return True
-
+        for table in ManagementSystem.tables:
+            if not self.tabel_status and self.max_capacity / 2 <= reservation.number_of_people <= self.__max_capacity:
+                self.__reservation_id = reservation.reservation_id
+                self.__table_status = True
+                ManagementSystem.remove_reservation(self.__reservation_id)
+                return True
         return False
 
     def create_order(self,customer):
         new_order = Order(self.table_id, customer.id)
+        ManagementSystem.orders.append(new_order)
         return new_order
 
     def free_table(self):
@@ -52,5 +51,13 @@ vation_id)
         return self.__max_capacity
 
     @max_capacity.setter
-    def name(self, max_capacity):
+    def max_capacity(self, max_capacity):
         self.__max_capacity = max_capacity
+
+    @property
+    def reservation_id(self):
+        return self.__reservation_id
+
+    @reservation_id.setter
+    def reservation_id(self, reservation_id):
+        self.__reservation_id = reservation_id

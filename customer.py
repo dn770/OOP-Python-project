@@ -39,3 +39,11 @@ class Customer:
     @contact_number.setter
     def contact_number(self, contact_number):
         self.__contact_number = contact_number
+
+    @property
+    def customer_mode(self):
+        return self.__customer_mode
+
+    @customer_mode.setter
+    def customer_mode(self, customer_mode):
+        self.__customer_mode = customer_mode
