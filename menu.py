@@ -1,4 +1,4 @@
-import menuItem
+from menuItem import MenuItem
 
 
 class Menu:
@@ -9,8 +9,9 @@ class Menu:
         self.__menu_id = Menu.menu_id
         self.__items = []
 
-    def add_menu_item(self, menu_item):
-        self.__items.append(menu_item)
+    def add_menu_item(self, title, description, price):
+        item = MenuItem(title, description, price)
+        self.__items.append(item)
 
     def remove_menu_item(self,menu_item_id):
         for item in self.__items:

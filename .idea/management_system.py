@@ -1,24 +1,55 @@
-import restaurant
-class ManagementSystem:
+from restaurant import Restaurant
+from menu import Menu
+from table import Table
+from order import Order
+from shipping import Shipping
+from customer import Customer
+
+class ManagementSystem(Restaurant):
 
     def __init__(self):
+        super.__init__()
         self.__menus = []
         self.__tables = []
+        self.__customer = []
 
-    def add_menu(self,menu):
+    def add_menu(self):
+        menu = Menu()
         self.__menus.append(menu)
 
-    def add_table(self,table):
+    def ramove_menu(self, menu_id):
+        for menu in menus:
+            if menu.menu_id == menus.id:
+                menus.remove(menu)
+
+    def add_table(self,max_capacity):
+        table = Table(max_capacity)
         self.__tables.append(table)
 
-    def take_order(self,order):
+    def ramove_table(self, table_id):
+        for table in tables:
+            if table.table_id == table.id:
+                tables.remove(table)
+
+    def add_customer(self, name, contant_number):
+        customer = Customer(name, contant_number)
+        self.__customers.append(customer)
+
+    def remove_customer(self, customer_id):
+        for customer in customers:
+            if customer.customer_id == customer.id:
+                customer.remove(customer)
+
+    def take_order(self,Order):
         order.order_status = True
 
-    def create_resevation(self):
-        Reservision(time, num_of_people)
+    def create_resevation(self,time,num_of_people):
+        reservation = Reservision(time, num_of_people)
+        return reservation
 
     def create_shipping(self):
-        Shipping(adress)
+        shipping = Shipping(adress)
+        return shipping
 
     @property
     def menus(self):
