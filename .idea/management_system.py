@@ -5,10 +5,9 @@ from order import Order
 from shipping import Shipping
 from customer import Customer
 
-class ManagementSystem(Restaurant):
+class ManagementSystem():
 
     def __init__(self):
-        super.__init__()
         self.__menus = []
         self.__tables = []
         self.__customer = []
@@ -17,7 +16,7 @@ class ManagementSystem(Restaurant):
         menu = Menu()
         self.__menus.append(menu)
 
-    def ramove_menu(self, menu_id):
+    def remove_menu(self, menu_id):
         for menu in menus:
             if menu.menu_id == menus.id:
                 menus.remove(menu)
@@ -43,7 +42,7 @@ class ManagementSystem(Restaurant):
     def take_order(self,Order):
         order.order_status = True
 
-    def create_resevation(self,time,num_of_people):
+    def create_resevation(self, time, num_of_people):
         reservation = Reservision(time, num_of_people)
         return reservation
 

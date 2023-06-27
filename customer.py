@@ -1,3 +1,4 @@
+
 class Customer:
     customer_id = 0
 
@@ -6,12 +7,14 @@ class Customer:
         self.__name = name
         self.__customer_id = Customer.customer_id
         self.__contact_number = contact_number
+        self.__customer_mode = True
 
     def check_in(self):
-        pass
+        self.__customer_mode = True
 
     def check_out(self):
-        pass
+        self.__customer_mode = False
+
 
     @property
     def name(self):

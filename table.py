@@ -16,7 +16,11 @@ class Table:
         if not self.tabel_status and self.max_capacity / 2 <= reservation.number_of_people <= self.__max_capacity:
             self.__reservation_id = reservation.reservation_id
             self.__table_status = True
+            ManagementSystem.remove_reeservation(self.__reservation_id)
+            ManagementSystem.orders.append(new_order)
+vation_id)
             return True
+
         return False
 
     def create_order(self,customer):

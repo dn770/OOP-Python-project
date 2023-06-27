@@ -16,6 +16,7 @@ class Shipping:
     def creat_order(self, customer):
         new_order = Order(0, customer.customer_id) # table = 0 - no table
         self.order_id = order_id
+        ManagementSystem.orders.append(new_order)
         return new_order
 
         @property

@@ -10,16 +10,10 @@ class Bill:
     def pay(self):
         self.payment_status = True
 
-    def cancel_payment(self):
-        self.__payment_status = False
-
     def change_type(self, payment_type):
         if not self.__payment_status:
             self.payment_type = payment_type
-        else:
-            Bill.cancel_payment(self)
-            self.payment_type = payment_type
-            Bill.pay()
+
 
     @property
     def bill_id(self):
