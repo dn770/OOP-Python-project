@@ -1,6 +1,8 @@
 from menu import Menu
 from customer import Customer
 from reservation import Reservation
+from table import Table
+from shipping import Shipping
 
 
 class ManagementSystem:
