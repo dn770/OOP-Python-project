@@ -9,8 +9,8 @@ class ManagementSystem:
         self.__menus = []
         self.__tables = []
         self.__customer = []
-        self.__orders = []
         self.__reservations = []
+        self.__orders = []
 
     def add_menu(self):
         menu = Menu()

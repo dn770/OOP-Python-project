@@ -4,9 +4,10 @@ from menuItem import MenuItem
 class Menu:
     menu_id = 0
 
-    def __init__(self):
+    def __init__(self, menu_type):
         Menu.menu_id += 1
         self.__menu_id = Menu.menu_id
+        self.__menu_type = menu_type
         self.__items = []
 
     def add_menu_item(self, title, description, price):
@@ -29,6 +30,14 @@ class Menu:
     @menu_id.setter
     def menu_id(self, menu_id):
         self.__menu_id = menu_id
+
+    @property
+    def menu_type(self):
+        return self.__menu_type
+
+    @menu_type.setter
+    def menu_type(self, menu_type):
+        self.__menu_type = menu_type
 
     @property
     def items(self):

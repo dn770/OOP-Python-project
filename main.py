@@ -1,20 +1,76 @@
 from restaurant import Restaurant
+from management_system import ManagementSystem
+
+
+def restaurant_declaration():
+    print("Wellcome to Restaurant Management System.")
+    name = input("Please insert restaurant's name: ")
+    address = input("Please insert restaurant's address: ")
+    phone_number = input("Please insert restaurant's phone number: ")
+    description = input("Please insert restaurant's description: ")
+    print("Thank you.")
+    return Restaurant(name, address, phone_number, description)
+
+
+def tables_declaration(management_system):
+    for num in range(1, int(input("Please insert number of tables\n"))+1):
+        cap = int(input(f"Please insert capacity of table {num}\n"))
+        management_system.add_table(cap)
+
+
+def menus_declaration(management_system):
+    for num in range(int(input("Please insert number of menus\n"))):
+        menu_type = input(f"insert type of menu {num}\n")
+        management_system.add_menu(menu_type)
+
+
+def menu_items_declaration(management_system):
+    for menu in management_system.menus:
+        for num in range(int(input(f"Please insert number of items for menu {menu.menu_id}\n"))):
+            title = input(f"insert title of item {num}\n")
+            desc = input(f"insert title of item {num}\n")
+            price = float(input(f"insert price of item {num}\n"))
+            management_system.add_menu(title, desc, price)
+
+
+def customers_declaration(management_system):
+    for num in range(int(input("Please insert number of customers\n"))):
+        name = input(f"insert name of customer {num}\n")
+        contact_number = input(f"insert contact number of customer {num}\n")
+        management_system.add_customers(name, contact_number)
+
+
+def ongoing_management_loop(management_system):
+    while True:
+        option = int(input("to reservation insert 1,\
+         to shipping insert 2, to take order insert 3 ,\
+          \
+          to shut down insert 0\n"))
+        if not option:
+            return
+        elif option == 1:
+            management_system.create_reservation()
+        elif option == 2:
+            management_system.create_shipping()
+        elif option == 3:
+            management_system.create_take_order()
 
 
 def main():
-    print("Wellcome to ")
-    name = input("please ")
-    address = input("please ")
-    phone_number = input("please ")
-    description = input("please ")
-    restaurant = Restaurant(name, address, phone_number, description)
+    restaurant = restaurant_declaration()
     management_system = restaurant.create_management_system()
-    for num in range(int(input("please"))):
-        cap = int(input("insert capacity of table ",num))
-        management_system.add_table(cap)
-    for num in range(int(input("please"))):
-        int(input("insert  of menu ",num))
-        management_system.add_menu()
+    tables_declaration(management_system)
+    menus_declaration(management_system)
+    menu_items_declaration(management_system)
+    customers_declaration(management_system)
+    ongoing_management_loop(management_system)
+
+
+
+
+
+
+
 
 
 

@@ -7,7 +7,7 @@ class Customer:
         self.__name = name
         self.__customer_id = Customer.customer_id
         self.__contact_number = contact_number
-        self.__customer_mode = True
+        self.__customer_mode = False
 
     def check_in(self):
         self.__customer_mode = True
