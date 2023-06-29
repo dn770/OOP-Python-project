@@ -2,11 +2,11 @@ from menuItem import MenuItem
 
 
 class Menu:
-    menu_id = 0
+    menu_count = 0
 
     def __init__(self, menu_type):
-        Menu.menu_id += 1
-        self.__menu_id = Menu.menu_id
+        Menu.menu_count += 1
+        self.__menu_id = Menu.menu_count
         self.__menu_type = menu_type
         self.__items = []
 

@@ -1,6 +1,4 @@
 from customer import Customer
-from management_system import ManagementSystem
-#from table import Table
 from bill import Bill
 
 
@@ -44,7 +42,6 @@ class Order:
     def end_order(self):
         if self.__order_status and self.__bill.payment_status:
             ManagementSystem.remove_order(self.order_id)
-            Table.free_table(self.table_id)
             Customer.check_out(self.__customer_id)
 
     @property

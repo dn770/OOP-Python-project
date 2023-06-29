@@ -1,5 +1,5 @@
 from restaurant import Restaurant
-from management_system import ManagementSystem
+
 
 def restaurant_declaration():
     print("Wellcome to Restaurant Management System.")
@@ -18,25 +18,25 @@ def tables_declaration(management_system):
 
 
 def menus_declaration(management_system):
-    for num in range(int(input("Please insert number of menus\n"))):
+    for num in range(1, int(input("Please insert number of menus\n"))+1):
         menu_type = input(f"insert type of menu {num}\n")
         management_system.add_menu(menu_type)
 
 
 def menu_items_declaration(management_system):
     for menu in management_system.menus:
-        for num in range(int(input(f"Please insert number of items for menu {menu.menu_id}\n"))):
+        for num in range(1, int(input(f"Please insert number of items for menu {menu.menu_id}\n"))+1):
             title = input(f"insert title of item {num}\n")
-            desc = input(f"insert title of item {num}\n")
+            desc = input(f"insert description of item {num}\n")
             price = float(input(f"insert price of item {num}\n"))
-            management_system.add_menu(title, desc, price)
+            menu.add_menu_item(title, desc, price)
 
 
 def customers_declaration(management_system):
     for num in range(int(input("Please insert number of customers\n"))):
         name = input(f"insert name of customer {num}\n")
         contact_number = input(f"insert contact number of customer {num}\n")
-        management_system.add_customers(name, contact_number)
+        management_system.add_customer(name, contact_number)
 
 
 def initial_boot():
@@ -46,3 +46,4 @@ def initial_boot():
     menus_declaration(management_system)
     menu_items_declaration(management_system)
     customers_declaration(management_system)
+    return management_system

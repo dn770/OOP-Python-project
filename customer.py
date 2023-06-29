@@ -1,11 +1,11 @@
 
 class Customer:
-    customer_id = 0
+    customer_count = 0
 
     def __init__(self, name, contact_number):
-        Customer.customer_id += 1
+        Customer.customer_count += 1
         self.__name = name
-        self.__customer_id = Customer.customer_id
+        self.__customer_id = Customer.customer_count
         self.__contact_number = contact_number
         self.__customer_mode = False
 

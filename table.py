@@ -1,14 +1,12 @@
-from reservation import Reservation
 from order import Order
-from management_system import ManagementSystem
 
 
 class Table:
-    table_id = 0
+    table_count = 0
 
     def __init__(self, max_capacity):
-        Table.table_id += 1
-        self.__tableID = Table.table_id
+        Table.table_count += 1
+        self.__tableID = Table.table_count
         self.__table_status = False
         self.__max_capacity = max_capacity
         self.__reservation_id = 0

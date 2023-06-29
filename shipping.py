@@ -1,14 +1,13 @@
-from customer import Customer
 from order import Order
-from management_system import ManagementSystem
+
 
 class Shipping:
 
-    shipping_id = 0
+    shipping_count = 0
 
     def __init__(self, shipping_address):
-        Shipping.shipping_id =+ 1
-        self.__shipping_id = Shipping.shipping_id
+        Shipping.shipping_count += 1
+        self.__shipping_id = Shipping.shipping_count
         self.__shipping_address = shipping_address
         self.__order_id = 0
 

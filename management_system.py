@@ -10,12 +10,12 @@ class ManagementSystem:
     def __init__(self):
         self.__menus = []
         self.__tables = []
-        self.__customer = []
+        self.__customers = []
         self.__reservations = []
         self.__orders = []
 
-    def add_menu(self):
-        menu = Menu()
+    def add_menu(self,type):
+        menu = Menu(type)
         self.__menus.append(menu)
 
     def remove_menu(self, menu_id):
@@ -46,10 +46,24 @@ class ManagementSystem:
             if order.order_status == order_id:
                 order.status = True
 
+    def remove_order(self, order_id):
+        for order in self.orders:
+            if order.order_status == order_id:
+                if order.table_id:
+                    Table.free_table(order.table_id)
+                self.orders.remove(order)
+                break
+
     def create_reservation(self, time, num_of_people):
         reservation = Reservation(time, num_of_people)
         self.reservations.append(reservation)
         return reservation
+
+    def remove_reservation(self, reservation_id):
+        for reservation in self.reservations:
+            if reservation.reservation_id == reservation_id:
+                self.reservations.remove(reservation)
+                break
 
     def create_shipping(self,address):
         shipping = Shipping(address)
