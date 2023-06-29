@@ -7,8 +7,10 @@ def ongoing_loop(management_system):
         if not option:
             return
         elif option == 1:
-            management_system.create_reservation()
+            reserv = management_system.create_reservation(input("Time: "), input(" num of people: "))
+            management_system.tables[0].add_reservation(reserv)
         elif option == 2:
-            management_system.create_shipping()
+            ships = management_system.create_shipping(input("Address: "))
+            ships.create_order()
         elif option == 3:
-            management_system.create_take_order()
+            management_system.create_take_order(input("order_id: "))

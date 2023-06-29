@@ -1,9 +1,9 @@
 class Reservation:
-    reservation_id = 0
+    reservation_count = 0
 
     def __init__(self, reservation_time, number_of_people):
-        Reservation.reservation_id += 1
-        self.__reservation_id = Reservation.reservation_id
+        Reservation.reservation_count += 1
+        self.__reservation_id = Reservation.reservation_count
         self.__reservation_time = reservation_time
         self.__number_of_people = number_of_people
 

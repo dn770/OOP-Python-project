@@ -12,17 +12,17 @@ class Table:
         self.__reservation_id = 0
 
     def add_reservation(self, reservation):
-        for table in ManagementSystem.tables:
+        for table in management_system.tables:
             if not self.tabel_status and self.max_capacity / 2 <= reservation.number_of_people <= self.__max_capacity:
                 self.__reservation_id = reservation.reservation_id
                 self.__table_status = True
-                ManagementSystem.remove_reservation(self.__reservation_id)
+                Management_system.remove_reservation(self.__reservation_id)
                 return True
         return False
 
     def create_order(self,customer):
         new_order = Order(self.table_id, customer.id)
-        ManagementSystem.orders.append(new_order)
+        Management_system.orders.append(new_order)
         return new_order
 
     def free_table(self):

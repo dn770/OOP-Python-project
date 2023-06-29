@@ -41,7 +41,7 @@ class Order:
 
     def end_order(self):
         if self.__order_status and self.__bill.payment_status:
-            ManagementSystem.remove_order(self.order_id)
+            management_system.remove_order(self.order_id)
             Customer.check_out(self.__customer_id)
 
     @property
