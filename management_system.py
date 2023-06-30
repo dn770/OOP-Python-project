@@ -22,6 +22,7 @@ class ManagementSystem:
         for menu in self.menus:
             if menu.menu_id == menu_id:
                 self.menus.remove(menu)
+                return True
 
     def add_table(self,max_capacity):
         table = Table(max_capacity)
