@@ -15,7 +15,7 @@ def ongoing_loop(management_system):
         elif option == "3": # take order
             management_system.create_take_order(input("order_id: "))
         elif option == "4": # bill
-
+            sub_option = input("")
         elif option == "5": # update menus
                 sub_option = input(" insert 1 - to add new menu\n 2 - to remove menu\n 3 - to clear menu\n")
                 if sub_option == "1":
