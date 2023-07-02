@@ -6,11 +6,20 @@ def ongoing_loop(management_system):
           8 - to update tables\n 9- to   0 - to exit\n")
         if not option: # 0 -> exit
             return
-        elif option == "1": # create reservation
-            reserv = management_system.create_reservation(input("Time: "), input(" num of people: "))
-            management_system.tables[0].add_reservation(reserv)
-        elif option == "2": # create shipping
-            ships = management_system.create_shipping(input("Address: "))
+        elif option == "1" or "2": # create reservation
+            if option == "1":
+                reserv = management_system.create_reservation(input("Time: "), input("num of people: "))
+                table = management_system.match_table(reserv)
+            else:# option = 2
+                ships = management_system.create_shipping(input("Address: "))
+                table = 0
+            #create order acorrding the reservation or shipping details
+            ans = input("New customer or old customer ? n/o")
+            if ans == "n":
+
+
+            management_system.create_order(table, customer, payment_type)
+
             ships.create_order()
         elif option == "3": # take order
             management_system.create_take_order(input("order_id: "))

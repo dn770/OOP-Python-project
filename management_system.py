@@ -3,6 +3,7 @@ from customer import Customer
 from reservation import Reservation
 from table import Table
 from shipping import Shipping
+from order import Order
 
 
 class ManagementSystem:
@@ -42,6 +43,12 @@ class ManagementSystem:
             if customer.customer_id == customer.id:
                 customer.remove(customer)
 
+
+    def create_order(self, table_id , customer, payment_type):
+        new_order = Order(table_id, customer.id, payment_type)
+        self.orders.append(new_order)
+        return new_order
+
     def take_order(self, order_id):
         for order in self.orders:
             if order.order_status == order_id:
@@ -59,6 +66,17 @@ class ManagementSystem:
         reservation = Reservation(time, num_of_people)
         self.reservations.append(reservation)
         return reservation
+
+    def match_table(self, reservation):
+        for table in self.tables:
+            if not table.table_status and table.max_capacity / 2 <= reservation.number_of_people <= self.__max_capacity:
+                table.__reservation_id = reservation.reservation_id
+                table.__table_status = True
+                self.remove_reservation(reservation.__reservation_id)
+                return table.table_id
+        return 0
+
+
 
     def remove_reservation(self, reservation_id):
         for reservation in self.reservations:

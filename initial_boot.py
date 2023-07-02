@@ -33,7 +33,7 @@ def menu_items_declaration(management_system):
 
 
 def customers_declaration(management_system):
-    for num in range(int(input("Please insert number of customers\n"))):
+    for num in range(1, int(input("Please insert number of customers\n"))+1):
         name = input(f"insert name of customer {num}\n")
         contact_number = input(f"insert contact number of customer {num}\n")
         management_system.add_customer(name, contact_number)

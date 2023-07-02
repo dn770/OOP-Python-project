@@ -14,11 +14,6 @@ class Shipping:
     def change_address(self, shipping_address):
         self.shipping_address = shipping_address
 
-    def create_order(self):
-        new_order = Order(0) # table = 0 - no table
-        management_system.orders.append(new_order)
-        return new_order
-
 
     @property
     def shipping_id(self):
