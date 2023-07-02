@@ -14,6 +14,8 @@ class Customer:
 
     def check_out(self):
         self.__customer_mode = False
+    def change_number(self,number):
+        self.__contact_number = number
 
 
     @property
@@ -35,6 +37,7 @@ class Customer:
     @property
     def contact_number(self):
         return self.__contact_number
+
 
     @contact_number.setter
     def contact_number(self, contact_number):
