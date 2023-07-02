@@ -3,7 +3,7 @@ def ongoing_loop(management_system):
         option = input(" insert 1 - to add reservation\n\
           2- to add shipping\n,3 - to take order\n \
           4 - to bill\n 5- to update menus\n 6 - to update menuItems\n 7- to update customers\n \
-          8 - to update tables\n 9- to   0 - to exit\n")
+          8 - to update tables\n 9- to show data \n   0 - to exit\n")
         if not option: # 0 -> exit
             return
         elif option == "1" or "2": # create reservation
@@ -68,4 +68,5 @@ def ongoing_loop(management_system):
             elif sub_option == "2":
                 management_system.remove_table(input("table_id = "))
         elif option == "9":
+            print()
             continue
