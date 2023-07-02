@@ -16,16 +16,22 @@ def ongoing_loop(management_system):
             #create order acorrding the reservation or shipping details
             ans = input("New customer or old customer ? n/o")
             if ans == "n":
-                management_system.add_customer(input("name: "),input("contact_number: "))
+                customer = management_system.add_customer(input("name: "),input("contact_number: "))
+                customer.check_in()
             else:
                 for cust in management_system.customers:
                     if cust.contact_number == input("contact_number: "):
                         cust.check_in()
+                        customer = cust
+                        break
 
+            management_system.create_order(table, customer, input("payment_type: "))
 
-            management_system.create_order(table, customer, payment_type)
-
-            ships.create_order()
+            #update address of shipping
+            if option == "2":
+                ans = "Are you want to change the address? y/n\n"
+                if ans == 'y':
+                    ships.change_adress(input("new address: "))
         elif option == "3": # take order
             management_system.create_take_order(input("order_id: "))
         elif option == "4": # bill
