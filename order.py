@@ -7,13 +7,18 @@ class Order:
 
     def __init__(self, table_id, customer_id, payment_type):
         Order.order_id += 1
-        self.__orderID = Order.order_id
+        self.__order_id = Order.order_id
         self.__order_status = False
-        self.__order_items = []
         self.__order_price = 0
         self.__table_id = table_id
         self.__customer_id = customer_id
         self.__bill = Bill(payment_type)
+        self.__order_items = []
+
+    def __str__(self):
+        return f"id - {self.__order_id}, status - {self.__order_status},\
+price - {self.__order_price}, table id - {self.__table_id},  customer id - {self.__customer_id}.\
+bill - {self.__bill}. items: {self.__order_items}\n"
 
     def calculate_price(self):
         p_sum = 0
@@ -21,16 +26,6 @@ class Order:
             p_sum += item.price
         self.__order_price = p_sum
 
-    def add_menu_item(self, menu_id, menu_item_id):
-        for menu in ManagementSystem.menus:
-            if menu.menu_id == menu_id:
-                for item in menu:
-                    if item.menu_item_id == menu_item_id:
-                        self.__order_items.append(item)
-                        break
-                break
-
-        self.calculate_price()
 
     def remove_menu_item(self, menu_item_id):
         for item in self.__order_items:
@@ -39,10 +34,6 @@ class Order:
                 break
         self.calculate_price()
 
-    def end_order(self):
-        if self.__order_status and self.__bill.payment_status:
-            management_system.remove_order(self.order_id)
-            Customer.check_out(self.__customer_id)
 
     @property
     def orderID(self):

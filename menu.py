@@ -10,6 +10,9 @@ class Menu:
         self.__menu_type = menu_type
         self.__items = []
 
+    def __str__(self):
+        return f"id - {self.__menu_id}, type - {self.__menu_type},items: {self.__items}\n"
+
     def add_menu_item(self, title, description, price):
         item = MenuItem(title, description, price)
         self.__items.append(item)

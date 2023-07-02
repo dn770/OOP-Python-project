@@ -8,6 +8,10 @@ class MenuItem:
         self.__description = description
         self.__price = price
 
+    def __str__(self):
+        return f"id - {self.__menu_item_id}, title - {self.__title},\
+description - {self.__description}, price - {self.__price}\n"
+
     def update_price(self, price):
         self.price = price
 

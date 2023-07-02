@@ -7,6 +7,10 @@ class Bill:
         self.__payment_type = payment_type
         self.__payment_status = False
 
+    def __str__(self):
+        return f"id - {self.__bill_id}, payment type - {self.__payment_type},\
+    payment status - {self.__payment_status}.\n"
+
     def pay(self):
         self.payment_status = True
 

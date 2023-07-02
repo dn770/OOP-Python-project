@@ -1,3 +1,4 @@
+from restaurant import Restaurant
 from menu import Menu
 from customer import Customer
 from reservation import Reservation
@@ -6,18 +7,20 @@ from shipping import Shipping
 from order import Order
 
 
-class ManagementSystem:
+class ManagementSystem(Restaurant):
 
     def __init__(self):
+        super().__init__()
         self.__menus = []
         self.__tables = []
         self.__customers = []
         self.__reservations = []
         self.__orders = []
 
-    def add_menu(self,type):
+    def add_menu(self, type):
         menu = Menu(type)
         self.__menus.append(menu)
+        return menu
 
     def remove_menu(self, menu_id):
         for menu in self.menus:
@@ -37,14 +40,14 @@ class ManagementSystem:
     def add_customer(self, name, contant_number):
         customer = Customer(name, contant_number)
         self.__customers.append(customer)
+        return customer
 
     def remove_customer(self, customer_id):
         for customer in self.customers:
             if customer.customer_id == customer.id:
                 customer.remove(customer)
 
-
-    def create_order(self, table_id , customer, payment_type):
+    def create_order(self, table_id, customer, payment_type):
         new_order = Order(table_id, customer.id, payment_type)
         self.orders.append(new_order)
         return new_order
@@ -76,8 +79,6 @@ class ManagementSystem:
                 return table.table_id
         return 0
 
-
-
     def remove_reservation(self, reservation_id):
         for reservation in self.reservations:
             if reservation.reservation_id == reservation_id:
@@ -87,6 +88,16 @@ class ManagementSystem:
     def create_shipping(self,address):
         shipping = Shipping(address)
         return shipping
+
+    def update_order(self, order, menu_id, menu_item_id):
+        for menu in self.menus:
+            if menu.menu_id == menu_id:
+                for item in menu:
+                    if item.menu_item_id == menu_item_id:
+                        order.order_items.append(item)
+                        order.calculate_price()
+                        break
+                break
 
     @property
     def menus(self):

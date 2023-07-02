@@ -4,10 +4,14 @@ class Customer:
 
     def __init__(self, name, contact_number):
         Customer.customer_count += 1
-        self.__name = name
         self.__customer_id = Customer.customer_count
+        self.__name = name
         self.__contact_number = contact_number
         self.__customer_mode = False
+
+    def __str__(self):
+        return f"id - {self.__customer_id}, name - {self.__name},\
+contact number - {self.__contact_number}, customer mode - {self.__customer_mode}.\n"
 
     def check_in(self):
         self.__customer_mode = True
