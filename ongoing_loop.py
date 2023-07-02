@@ -16,7 +16,11 @@ def ongoing_loop(management_system):
             #create order acorrding the reservation or shipping details
             ans = input("New customer or old customer ? n/o")
             if ans == "n":
-
+                management_system.add_customer(input("name: "),input("contact_number: "))
+            else:
+                for cust in management_system.customers:
+                    if cust.contact_number == input("contact_number: "):
+                        cust.check_in()
 
             management_system.create_order(table, customer, payment_type)
 
