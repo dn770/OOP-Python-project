@@ -14,7 +14,8 @@ class Customer:
 
     def check_out(self):
         self.__customer_mode = False
-    def change_number(self,number):
+
+    def change_number(self, number):
         self.__contact_number = number
 
 

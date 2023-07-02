@@ -61,6 +61,12 @@ def ongoing_loop(management_system):
                 management_system.add_customer(input("name: "), input("contact_number: "))
             elif sub_option == "2":
                 management_system.remove_customer(input("customer_id = "))
+            elif sub_option == "3":
+                old_number = input("old contact_number: ")
+                for cust in management_system.customers:
+                    if cust.contact_number == old_number:
+                        cust.change_number(input("new contact_number"))
+
         elif option == "8": # update tables
             sub_option = input(" insert 1 - to add new table\n 2 - to remove table\n")
             if sub_option == "1":
