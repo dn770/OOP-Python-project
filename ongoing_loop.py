@@ -22,6 +22,7 @@ def ongoing_loop(management_system):
                     if cust.contact_number == input("contact_number: "):
                         cust.check_in()
 
+
             management_system.create_order(table, customer, payment_type)
 
             ships.create_order()
