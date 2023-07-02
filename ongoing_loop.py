@@ -18,6 +18,7 @@ def ongoing_loop(management_system):
             if ans == "n":
 
 
+
             management_system.create_order(table, customer, payment_type)
 
             ships.create_order()
