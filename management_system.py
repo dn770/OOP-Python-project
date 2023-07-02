@@ -55,6 +55,7 @@ class ManagementSystem(Restaurant):
         for order in self.orders:
             if not order.order_status:
                 order.status = True
+                return order
 
     def remove_order(self, order_id):
         for order in self.orders:
@@ -70,7 +71,7 @@ class ManagementSystem(Restaurant):
 
     def match_table(self, reservation):
         for table in self.tables:
-            if not table.table_status and table.max_capacity / 2 <= reservation.number_of_people <= self.__max_capacity:
+            if not table.table_status and int(table.max_capacity) // 2 <= int(reservation.number_of_people) <= int(table.max_capacity):
                 table.__reservation_id = reservation.reservation_id
                 table.__table_status = True
                 return table.table_id

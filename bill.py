@@ -1,8 +1,8 @@
 class Bill:
-    bill_id = 0
+    bill_count = 0
 
     def __init__(self, payment_type):
-        Bill.bill_id += 1
+        Bill.bill_count += 1
         self.__bill_id = Bill.bill_id
         self.__payment_type = payment_type
         self.__payment_status = False

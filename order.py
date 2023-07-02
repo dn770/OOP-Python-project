@@ -25,6 +25,7 @@ bill - {self.__bill}. items: {self.__order_items}\n"
         for item in self.__order_items:
             p_sum += item.price
         self.__order_price = p_sum
+        return p_sum
 
 
     def remove_menu_item(self, menu_item_id):

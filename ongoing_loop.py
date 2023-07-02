@@ -10,7 +10,7 @@ def ongoing_loop(management_system):
 
         elif option == "1" or option == "2": # create reservation
             if option == "1":
-                reserv = management_system.create_reservation(input("Time: "), input("num of people: "))
+                reserv = management_system.create_reservation(input("Time: "), int(input("num of people: ")))
                 ans = input("to change time? y/n\n")
                 if ans == "y":
                     reserv.change_reservation_time(input("new time: "))
@@ -51,7 +51,8 @@ def ongoing_loop(management_system):
                     ships.change_adress(input("new address: "))
 
         elif option == "3": # take order
-            management_system.take_order() # find the first order in the list that satus is false
+            order = management_system.take_order() # find the first order in the list that satus is false
+            print(order.calculate_price())
 
         elif option == "4": # bill
             # change payment_type
@@ -59,8 +60,8 @@ def ongoing_loop(management_system):
             for order in management_system.orders:
                 if order.order_id == order_id:
                     order_to_bill = order
-
-            ans = input("Are you want to change the address? y/n\n")
+            print(order_to_bill)
+            ans = input("Are you want to change the payment type? y/n\n")
             if ans == 'y':
                 order_to_bill.bill.change_type(input("new type: "))
 
@@ -124,17 +125,19 @@ def ongoing_loop(management_system):
                 print("invalid option, back to main-menu")
 
         elif option == "9":
-            sub_option = input(" insert 1 - to show orders\n 2 - menus\n 3 - customers\n 4- tables\n 5 - reservations")
+            sub_option = input(" insert 1 - to show orders\n 2 - menus\n 3 - customers\n 4- tables\n")
             if sub_option == "1":
-                print(management_system.orders)
+                for order in management_system.orders:
+                    print(order)
             elif sub_option == "2":
-                print(management_system.menus)
+                for menu in management_system.menus:
+                    print (menu)
             elif sub_option == "3":
-                print(management_system.customers)
+                for custom in management_system.customers:
+                    print(custom)
             elif sub_option == "4":
-                print(management_system.tables)
-            elif sub_option == "5":
-                print(management_system.reservations)
+                for tab in management_system.tables:
+                    print(tab)
             else:
                 print("invalid option, back to main-menu")
 
