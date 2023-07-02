@@ -10,8 +10,12 @@ class Reservation:
     def __str__(self):
         return f"id - {self.__reservation_id}, time - {self.__reservation_time},\
 number of people - {self.__number_of_people}\n"
+
     def change_reservation_time(self, reservation_time):
         self.__reservation_time = reservation_time
+
+    def change_number_of_people(self, num):
+        self.__number_of_people = num
 
     @property
     def reservation_id(self):

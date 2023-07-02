@@ -1,5 +1,5 @@
 from restaurant import Restaurant
-
+from management_system import ManagementSystem
 
 def restaurant_declaration():
     print("Wellcome to Restaurant Management System.")
@@ -8,7 +8,7 @@ def restaurant_declaration():
     phone_number = input("Please insert restaurant's phone number: ")
     description = input("Please insert restaurant's description: ")
     print("Thank you.")
-    return Restaurant(name, address, phone_number, description)
+    return name, address, phone_number, description
 
 
 def tables_declaration(management_system):
@@ -40,8 +40,8 @@ def customers_declaration(management_system):
 
 
 def initial_boot():
-    restaurant = restaurant_declaration()
-    management_system = restaurant.create_management_system()
+    name, address, phone_number, description = restaurant_declaration()
+    management_system = ManagementSystem(name, address, phone_number, description)
     tables_declaration(management_system)
     menus_declaration(management_system)
     menu_items_declaration(management_system)

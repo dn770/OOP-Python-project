@@ -1,5 +1,3 @@
-from management_system import ManagementSystem
-
 
 class Restaurant:
 
@@ -9,8 +7,6 @@ class Restaurant:
         self.__phone_number = phone_number
         self.__description = description
 
-    def create_management_system(self):
-        return ManagementSystem()
 
     @property
     def name(self):

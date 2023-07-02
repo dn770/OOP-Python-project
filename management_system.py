@@ -9,12 +9,11 @@ from order import Order
 
 class ManagementSystem(Restaurant):
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, name , adderss, phone_number ,description):
+        super().__init__(name , adderss, phone_number ,description)
         self.__menus = []
         self.__tables = []
         self.__customers = []
-        self.__reservations = []
         self.__orders = []
 
     def add_menu(self, type):
@@ -48,7 +47,7 @@ class ManagementSystem(Restaurant):
                 customer.remove(customer)
 
     def create_order(self, table_id, customer, payment_type):
-        new_order = Order(table_id, customer.id, payment_type)
+        new_order = Order(table_id, customer.customer_id, payment_type)
         self.orders.append(new_order)
         return new_order
 
@@ -67,7 +66,6 @@ class ManagementSystem(Restaurant):
 
     def create_reservation(self, time, num_of_people):
         reservation = Reservation(time, num_of_people)
-        self.reservations.append(reservation)
         return reservation
 
     def match_table(self, reservation):
@@ -75,15 +73,8 @@ class ManagementSystem(Restaurant):
             if not table.table_status and table.max_capacity / 2 <= reservation.number_of_people <= self.__max_capacity:
                 table.__reservation_id = reservation.reservation_id
                 table.__table_status = True
-                self.remove_reservation(reservation.__reservation_id)
                 return table.table_id
         return 0
-
-    def remove_reservation(self, reservation_id):
-        for reservation in self.reservations:
-            if reservation.reservation_id == reservation_id:
-                self.reservations.remove(reservation)
-                break
 
     def create_shipping(self,address):
         shipping = Shipping(address)
