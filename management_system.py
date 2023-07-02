@@ -49,9 +49,9 @@ class ManagementSystem:
         self.orders.append(new_order)
         return new_order
 
-    def take_order(self, order_id):
+    def take_order(self):
         for order in self.orders:
-            if order.order_status == order_id:
+            if not order.order_status:
                 order.status = True
 
     def remove_order(self, order_id):

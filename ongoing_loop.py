@@ -16,7 +16,7 @@ def ongoing_loop(management_system):
             #create order acorrding the reservation or shipping details
             ans = input("New customer or old customer ? n/o")
             if ans == "n":
-                customer = management_system.add_customer(input("name: "),input("contact_number: "))
+                customer = management_system.add_customer(input("name: "), input("contact_number: "))
                 customer.check_in()
             else:
                 for cust in management_system.customers:
@@ -32,8 +32,9 @@ def ongoing_loop(management_system):
                 ans = "Are you want to change the address? y/n\n"
                 if ans == 'y':
                     ships.change_adress(input("new address: "))
+
         elif option == "3": # take order
-            management_system.create_take_order(input("order_id: "))
+            management_system.take_order() # find the first order in the list that satus is false
         elif option == "4": # bill
             sub_option = input("")
         elif option == "5": # update menus
@@ -46,14 +47,16 @@ def ongoing_loop(management_system):
                     management_system.clear_menu(input("menu_id = "))
                 else:
                     print("invalid option, back to main-menu")
+
         elif option == "6": # update menuItems
             sub_option = input(" insert 1 - to add new menu\n 2 - to remove menu\n 3 - to clear menu\n")
             if sub_option == "1":
                 management_system.add_menu(input("type: "))
             elif sub_option == "2":
                 management_system.remove_menu(input("menu_id = "))
+
         elif option == "7": # update customers
-            sub_option = input(" insert 1 - to add new customer \n 2 - to remove customer\n")
+            sub_option = input(" insert 1 - to add new customer \n 2 - to remove customer\n 3- update contact_number\n")
             if sub_option == "1":
                 management_system.add_customer(input("name: "), input("contact_number: "))
             elif sub_option == "2":
