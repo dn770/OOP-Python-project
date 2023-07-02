@@ -55,18 +55,29 @@ def ongoing_loop(management_system):
 
         elif option == "4": # bill
             # change payment_type
+            order_id = input("order_id: ")
+            for order in management_system.orders:
+                if order.order_id == order_id:
+                    order_to_bill = order
 
             ans = input("Are you want to change the address? y/n\n")
             if ans == 'y':
-                order.bill.change_type(input("new type: "))
+                order_to_bill.bill.change_type(input("new type: "))
 
+            if not order_to_bill.bill.payment_status:
+                order_to_bill.bill.pay()
+                management_system.remove_order(order_to_bill.order_id)
 
+                for tab in management_system.tables:
+                    if tab.table_id == order_to_bill.table_id:
+                        tab.free()
+                        break
 
+                for custom in management_system.customers:
+                    if custom.customer_id == order_to_bill.customer_id:
+                        custom.check_out()
+                        break
 
-                if self.__order_status and self.__bill.payment_status:
-                    management_system.remove_order(self.order_id)
-                    Customer.check_out(self.__customer_id)
-            sub_option = input("")
 
         elif option == "5": # update menus
                 sub_option = input(" insert 1 - to add new menu\n 2 - to remove menu\n 3 - to clear menu\n")
