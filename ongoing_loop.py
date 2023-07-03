@@ -44,6 +44,13 @@ def ongoing_loop(management_system):
                 ans = input("anything else? y/n\n")
             print("Thank you.")
 
+            ans = "do you want to remove item from the ordr? y/n\n" # flag
+            while ans == "y":
+                print("What would you like to remove from the order?")
+                order.remove_menu_item(input("menu_item_id: "))
+                ans = input("anything else? y/n\n")
+            print("Thank you.")
+
             #update address of shipping
             if option == "2":
                 ans = input("Are you want to change the address? y/n\n")
@@ -57,6 +64,7 @@ def ongoing_loop(management_system):
         elif option == "4": # bill
             # change payment_type
             order_id = input("order_id: ")
+            order_to_bill = None
             for order in management_system.orders:
                 if order.order_id == order_id:
                     order_to_bill = order
@@ -78,7 +86,6 @@ def ongoing_loop(management_system):
                     if custom.customer_id == order_to_bill.customer_id:
                         custom.check_out()
                         break
-
 
         elif option == "5": # update menus
                 sub_option = input(" insert 1 - to add new menu\n 2 - to remove menu\n 3 - to clear menu\n")
