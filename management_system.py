@@ -59,7 +59,7 @@ class ManagementSystem(Restaurant):
 
     def remove_order(self, order_id):
         for order in self.orders:
-            if order.order_status == order_id:
+            if order.order_id == order_id:
                 if order.table_id:
                     Table.free_table(order.table_id)
                 self.orders.remove(order)
