@@ -11,7 +11,10 @@ class Menu:
         self.__items = []
 
     def __str__(self):
-        return f"id - {self.__menu_id}, type - {self.__menu_type},items: {self.__items}\n"
+        rstr = f"id - {self.__menu_id}, type - {self.__menu_type},items:\n"
+        for item in self.__items:
+            rstr = rstr + " " + str(item.menu_item_id)+ " " + item.description + " " + str(item.price) + "\n"
+        return rstr
 
     def add_menu_item(self, title, description, price):
         item = MenuItem(title, description, price)

@@ -89,7 +89,6 @@ class ManagementSystem(Restaurant):
                         order.order_items.append(item)
                         order.calculate_price()
                         break
-                break
 
     @property
     def menus(self):

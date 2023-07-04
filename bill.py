@@ -3,7 +3,7 @@ class Bill:
 
     def __init__(self, payment_type):
         Bill.bill_count += 1
-        self.__bill_id = Bill.bill_id
+        self.__bill_id = Bill.bill_count
         self.__payment_type = payment_type
         self.__payment_status = False
 

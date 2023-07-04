@@ -16,9 +16,13 @@ class Order:
         self.__order_items = []
 
     def __str__(self):
-        return f"id - {self.__order_id}, status - {self.__order_status},\
+        rstr = f"id - {self.__order_id}, status - {self.__order_status},\
 price - {self.__order_price}, table id - {self.__table_id},  customer id - {self.__customer_id}.\
-bill - {self.__bill}. items: {self.__order_items}\n"
+items: \n"
+        for item in self.__order_items:
+            rstr = rstr + " " + str(item.menu_item_id)+ " " + item.description + " " + str(item.price) + "\n"
+        rstr = rstr + "bill- " + str(self.bill.bill_id) + " " + str(self.bill.payment_type) + " " + str(self.bill.payment_status) + "\n"
+        return rstr
 
     def calculate_price(self):
         p_sum = 0

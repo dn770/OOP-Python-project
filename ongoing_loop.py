@@ -68,6 +68,8 @@ def ongoing_loop(management_system):
             for order in management_system.orders:
                 if order.order_id == order_id:
                     order_to_bill = order
+                    break
+
             print(order_to_bill)
             ans = input("Are you want to change the payment type? y/n\n")
             if ans == 'y':
@@ -99,13 +101,22 @@ def ongoing_loop(management_system):
                     print("invalid option, back to main-menu")
 
         elif option == "6": # update menuItems
-            sub_option = input(" insert 1 - to add new menu\n 2 - to remove menu\n 3 - to clear menu\n")
-            if sub_option == "1":
-                management_system.add_menu(input("type: "))
-            elif sub_option == "2":
-                management_system.remove_menu(input("menu_id = "))
-            else:
-                print("invalid option, back to main-menu")
+            sub_option = input(" insert 1 - to add new menuItem\n 2 - to remove menuItem\n 3 - to update price of menuItem\n")
+            menu_id = input("menu_id: ")
+            for menu in management_system.menus:
+                if menu.menu_id == menu_id:
+                    if sub_option == "1":
+                        menu.add_menu_item(input("title: "), input("description: "), float(input("price:")) )
+                    elif sub_option == "2":
+                        menu.remove_menu_item(input("item_id = "))
+                    elif sub_option == "3":
+                        item_id = input("item_id: ")
+                        for item in menu:
+                            if item.item_id == item_id:
+                                menu.remove_menu_item(input("item_id = "))
+                                break
+                    else:
+                        print("invalid option, back to main-menu")
 
         elif option == "7": # update customers
             sub_option = input(" insert 1 - to add new customer \n 2 - to remove customer\n 3- update contact_number\n")
