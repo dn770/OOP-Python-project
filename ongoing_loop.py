@@ -44,7 +44,7 @@ def ongoing_loop(management_system):
                 ans = input("anything else? y/n\n")
             print("Thank you.")
 
-            ans = "do you want to remove item from the ordr? y/n\n" # flag
+            ans = input("do you want to remove item from the ordr? y/n\n") # flag
             while ans == "y":
                 print("What would you like to remove from the order?")
                 order.remove_menu_item(input("menu_item_id: "))
@@ -55,7 +55,7 @@ def ongoing_loop(management_system):
             if option == "2":
                 ans = input("Are you want to change the address? y/n\n")
                 if ans == 'y':
-                    ships.change_adress(input("new address: "))
+                    ships.change_address(input("new address: "))
 
         elif option == "3": # take order
             order = management_system.take_order() # find the first order in the list that satus is false

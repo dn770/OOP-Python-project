@@ -33,7 +33,7 @@ class ManagementSystem(Restaurant):
 
     def remove_table(self, table_id):
         for table in self.tables:
-            if table.table_id == table.id:
+            if table.table_id == table_id:
                 self.tables.remove(table)
 
     def add_customer(self, name, contant_number):
