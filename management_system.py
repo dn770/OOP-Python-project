@@ -34,7 +34,7 @@ class ManagementSystem(Restaurant):
     def remove_table(self, table_id):
         for table in self.tables:
             if table.table_id == table_id:
-                self.tables.remove(table)
+                self.__tables.remove(table)
 
     def add_customer(self, name, contant_number):
         customer = Customer(name, contant_number)
@@ -44,11 +44,11 @@ class ManagementSystem(Restaurant):
     def remove_customer(self, customer_id):
         for customer in self.customers:
             if customer.customer_id == customer.id:
-                customer.remove(customer)
+                self.__customers.remove(customer)
 
     def create_order(self, table_id, customer, payment_type):
         new_order = Order(table_id, customer.customer_id, payment_type)
-        self.orders.append(new_order)
+        self.__orders.append(new_order)
         return new_order
 
     def take_order(self):
@@ -62,7 +62,7 @@ class ManagementSystem(Restaurant):
             if order.order_id == order_id:
                 if order.table_id:
                     Table.free_table(order.table_id)
-                self.orders.remove(order)
+                self.__orders.remove(order)
                 break
 
     def create_reservation(self, time, num_of_people):
@@ -86,7 +86,7 @@ class ManagementSystem(Restaurant):
             if menu.menu_id == menu_id:
                 for item in menu:
                     if item.menu_item_id == menu_item_id:
-                        order.order_items.append(item)
+                        order.__order_items.append(item)
                         order.calculate_price()
                         break
 

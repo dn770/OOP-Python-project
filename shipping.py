@@ -36,5 +36,5 @@ class Shipping:
         return self.__order_id
 
     @order_id.setter
-    def shipping_address(self, order_id):
+    def order_id(self, order_id):
         self.__order_id = order_id

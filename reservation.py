@@ -38,5 +38,5 @@ number of people - {self.__number_of_people}\n"
         return self.__number_of_people
 
     @number_of_people.setter
-    def name(self, number_of_people):
+    def number_of_people(self, number_of_people):
         self.__number_of_people = number_of_people

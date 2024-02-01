@@ -136,9 +136,11 @@ def ongoing_loop(management_system):
         elif option == "8": # update tables
             sub_option = input(" insert 1 - to add new table\n 2 - to remove table\n")
             if sub_option == "1":
-                management_system.add_table(input("capacity: "))
+                capacity = input("capacity: ")
+                management_system.add_table(capacity)
             elif sub_option == "2":
-                management_system.remove_table(input("table_id = "))
+                table_id = input("table_id = ")
+                management_system.remove_table(table_id)
             else:
                 print("invalid option, back to main-menu")
 
